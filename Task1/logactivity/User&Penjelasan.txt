@@ -1,0 +1,47 @@
+Username & password
+            
+            [  'name'=>'Kepala Dinas',
+               'email'=>'kepaladinas@gmail.com',
+               'password'=> bcrypt('123456789'),
+            ]
+            [
+               'name'=>'Kepala Bidang 1',
+               'email'=>'kepalabidang1@gmail.com',
+               'password'=> bcrypt('123456789'),
+            ],
+            [
+               'name'=>'Kepala Bidang 2',
+               'email'=>'kepalabidang2@gmail.com',
+               'password'=> bcrypt('123456789'),
+            ],
+            [
+               'name'=>'Staff 1',
+               'email'=>'Staff1@gmail.com',
+               'password'=> bcrypt('123456789'),
+            ],
+            [
+               'name'=>'Staff 2',
+               'email'=>'Staff2@gmail.com',
+               'password'=> bcrypt('123456789'),
+            ],
+
+
+*Penjelasan singkat
+*Staff
+ 1. Ketika Staff 1 berhasil menambahkan log activity, 
+    maka status awal akan pending dan menunggu approve/persetujuan dari kepala bidang 1 (Berlaku Staff2 dan kepala bidang 2)
+ 2. Staff dapat mengubah/edit log activity jika salah
+ 3. Ketika log activity ditolak maka staff dapat merubahnya atau merevisi ulang, lalu dikirimkan kembali jika dirasa benar
+    tapi ketika dikirim ulang status tetap pending dan menunggu persetujuan.
+ 4. Jika log activity berhasil disetujui, maka selesai.
+
+*Kepalabidang
+ 1. Ketika Kepalabidang berhasil login, Kepalabidang dapat menyetujui atau menolak data yang telah dikirimkan oleh staff
+ 2. Jika dirasa disetujui, maka status dalam log activity, disetujui
+ 3. Lalu Kepalabidang mengirimkan data yang telah disetujui ke kepaladinas dengan menambahkan data, 
+   jika dikirim maka statusnya menjadi pending.
+ 4. ketika disetujui maka selesai
+
+*Kepaladinas
+ 1. Kepala dinas bertugas memberikan approval dan menolak log activity dari Kepalabidang.
+ 2. Kepala dinas bisa mengkontrol User.
